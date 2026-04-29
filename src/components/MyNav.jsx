@@ -1,6 +1,6 @@
 import { Navbar, Container, Nav } from "react-bootstrap"
 
-const MyNav = function () {
+const MyNav = ({ onShowBooks, onAllBooks }) => {
   return (
     <Navbar
       collapseOnSelect
@@ -10,13 +10,14 @@ const MyNav = function () {
       sticky="top"
     >
       <Container fluid>
-        <Navbar.Brand href="#"> HorrorBooks</Navbar.Brand>
+        <Navbar.Brand href="#">HorrorBooks</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#">Home</Nav.Link>
+            <Nav.Link onClick={onAllBooks}>Home</Nav.Link>
             <Nav.Link href="#">About</Nav.Link>
-            <Nav.Link href="#">Browse</Nav.Link>
+
+            <Nav.Link onClick={onShowBooks}>Libri</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

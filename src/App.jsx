@@ -4,15 +4,27 @@ import MyNav from "./components/MyNav"
 import MyFooter from "./components/MyFooter"
 import Welcome from "./components/Welcome"
 import AllTheBooks from "./components/AllTheBooks"
+import BookList from "./components/BookList"
+import books from "./data/horror.json"
+
+import { useState } from "react"
 
 function App() {
+  const [showBooks, setShowBooks] = useState(false)
+
   return (
     <div className="d-flex flex-column min-vh-100">
-      <MyNav />
+      <MyNav
+        onShowBooks={() => setShowBooks(true)}
+        onAllBooks={() => setShowBooks(false)}
+      />
+
       <main className="flex-grow-1">
         <Welcome />
-        <AllTheBooks />
+
+        {showBooks ? <BookList books={books} /> : <AllTheBooks />}
       </main>
+
       <MyFooter />
     </div>
   )
