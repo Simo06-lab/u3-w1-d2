@@ -9,4 +9,5 @@ const CommentsList = ({ comments }) => {
     </div>
   )
 }
+
 export default CommentsList
