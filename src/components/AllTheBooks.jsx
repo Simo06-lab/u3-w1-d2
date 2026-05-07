@@ -16,7 +16,11 @@ const AllTheBooks = function () {
           </svg>
         </button>
 
-        <div id="row1" className="d-flex gap-3 pb-3 px-3 mb-4 scroll-row">
+        <div
+          id="row1"
+          data-testid="row1"
+          className="d-flex gap-3 pb-3 px-3 mb-4 scroll-row"
+        >
           {firstRow.map((book) => (
             <Card
               key={book.asin}
@@ -65,7 +69,11 @@ const AllTheBooks = function () {
           </svg>
         </button>
 
-        <div id="row2" className="d-flex gap-3 pb-3 px-3 scroll-row">
+        <div
+          id="row2"
+          data-testid="row2"
+          className="d-flex gap-3 pb-3 px-3 scroll-row"
+        >
           {secondRow.map((book) => (
             <Card
               key={book.asin}
@@ -101,6 +109,7 @@ const AllTheBooks = function () {
             </Card>
           ))}
         </div>
+
         <button className="arrow-btn right" onClick={() => scrollRight("row2")}>
           <svg className="svgIcon" viewBox="0 0 384 512">
             <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
@@ -110,6 +119,7 @@ const AllTheBooks = function () {
     </Container>
   )
 }
+
 const scrollRight = (id) => {
   const row = document.getElementById(id)
   row.scrollBy({ left: 150, behavior: "smooth" })
